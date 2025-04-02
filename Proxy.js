@@ -3,7 +3,7 @@ const cors = require('cors');
 const axios = require('axios');
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000; // Use dynamic port from environment variable
 
 // Middleware
 app.use(cors());
@@ -28,5 +28,5 @@ app.post('/submit', async (req, res) => {
 app.get('/favicon.ico', (req, res) => res.status(204).end());
 
 app.listen(PORT, () => {
-    console.log(`Proxy server running on http://localhost:${PORT}`);
+    console.log(`Proxy server running on port ${PORT}`);
 });
